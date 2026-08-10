@@ -96,7 +96,7 @@ export const DEFAULT_LIGHT: Palette = {
   surface: { color: "#ffffff" },
   "surface-secondary": { color: "#fcfcfc" },
   border: { color: "#f5f5f5" },
-  "border-secondary": { color: "#eeeeee" },
+  "border-secondary": { color: "#f3f3f3" },
   "text-primary": { color: "#404040" },
   "text-secondary": { color: "#7a7a7a" },
   "text-muted": { color: "#dedede" },
@@ -110,9 +110,9 @@ export const DEFAULT_LIGHT: Palette = {
 
 export const DEFAULT_DARK: Palette = {
   surface: { color: "#141414" },
-  "surface-secondary": { color: "#1f1f1f" },
+  "surface-secondary": { color: "#1b1b1b" },
   border: { color: "#1e1e1e" },
-  "border-secondary": { color: "#2a2a2a" },
+  "border-secondary": { color: "#242424" },
   "text-primary": { color: "#e3e3e3" },
   "text-secondary": { color: "#a2a2a2" },
   "text-muted": { color: "#4c4c4c" },
