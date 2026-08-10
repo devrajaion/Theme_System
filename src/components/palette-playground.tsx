@@ -4,14 +4,13 @@ import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { RefreshIcon } from "@hugeicons/core-free-icons";
+import { ColorPicker } from "@/components/color-picker";
 import {
   clonePalette,
   DEFAULT_DARK,
   DEFAULT_LIGHT,
-  normalizeHex,
   paletteToCssBlock,
   TOKEN_META,
-  type Palette,
   type ThemeMode,
   type TokenValue,
 } from "@/lib/theme-tokens";
@@ -29,24 +28,6 @@ function TokenRow({
   hasAlpha?: boolean;
   onChange: (next: TokenValue) => void;
 }) {
-  const [hexDraft, setHexDraft] = useState(value.color);
-
-  useEffect(() => {
-    setHexDraft(value.color);
-  }, [value.color]);
-
-  const commitHex = (raw: string) => {
-    const normalized = normalizeHex(raw);
-    if (!normalized) {
-      setHexDraft(value.color);
-      return;
-    }
-    setHexDraft(normalized);
-    onChange({ ...value, color: normalized });
-  };
-
-  const alphaPercent = Math.round((value.alpha ?? 1) * 100);
-
   return (
     <div className="flex flex-col gap-2 rounded-lg border border-border bg-surface-secondary p-3 sm:flex-row sm:items-center sm:justify-between">
       <div className="min-w-0">
@@ -56,67 +37,14 @@ function TokenRow({
         ) : null}
       </div>
 
-      <div className="flex flex-wrap items-center gap-2">
-        <label className="relative size-9 shrink-0 overflow-hidden rounded-md border border-border">
-          <span
-            className="absolute inset-0"
-            style={{
-              backgroundColor: value.color,
-              opacity: hasAlpha ? (value.alpha ?? 1) : 1,
-            }}
-          />
-          <input
-            type="color"
-            aria-label={`${label} color`}
-            value={normalizeHex(value.color) ?? "#000000"}
-            onChange={(event) => {
-              const color = event.target.value.toLowerCase();
-              setHexDraft(color);
-              onChange({ ...value, color });
-            }}
-            className="absolute inset-0 cursor-pointer opacity-0"
-          />
-        </label>
-
-        <input
-          type="text"
-          spellCheck={false}
-          aria-label={`${label} hex`}
-          value={hexDraft}
-          onChange={(event) => setHexDraft(event.target.value)}
-          onBlur={() => commitHex(hexDraft)}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              commitHex(hexDraft);
-              (event.target as HTMLInputElement).blur();
-            }
-          }}
-          className="w-[7.5rem] rounded-md border border-border bg-surface px-2 py-1.5 font-mono text-xs text-text-primary outline-none focus:border-primary"
-        />
-
-        {hasAlpha ? (
-          <div className="flex items-center gap-2">
-            <input
-              type="range"
-              min={0}
-              max={100}
-              step={1}
-              aria-label={`${label} opacity`}
-              value={alphaPercent}
-              onChange={(event) =>
-                onChange({
-                  ...value,
-                  alpha: Number(event.target.value) / 100,
-                })
-              }
-              className="w-24 accent-[var(--primary)]"
-            />
-            <span className="w-10 text-right font-mono text-xs text-text-secondary">
-              {alphaPercent}%
-            </span>
-          </div>
-        ) : null}
-      </div>
+      <ColorPicker
+        label={label}
+        color={value.color}
+        alpha={value.alpha ?? 1}
+        showAlpha={hasAlpha}
+        onColorChange={(color) => onChange({ ...value, color })}
+        onAlphaChange={(alpha) => onChange({ ...value, alpha })}
+      />
     </div>
   );
 }

@@ -162,3 +162,67 @@ select:not(:disabled) {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* react-colorful — theme-aligned picker */
+.theme-color-picker .react-colorful {
+  width: 100%;
+  height: 168px;
+  gap: 10px;
+}
+
+.theme-color-picker .react-colorful__saturation {
+  border-radius: 10px;
+  border-bottom: none;
+}
+
+.theme-color-picker .react-colorful__hue {
+  height: 12px;
+  border-radius: 999px;
+}
+
+.theme-color-picker .react-colorful__pointer {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 28%);
+}
+
+.theme-color-picker .react-colorful__hue-pointer {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-opacity-slider {
+  appearance: none;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--text-primary)
+  );
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.theme-opacity-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 18%);
+  cursor: pointer;
+}
+
+.theme-opacity-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 18%);
+  cursor: pointer;
+}
