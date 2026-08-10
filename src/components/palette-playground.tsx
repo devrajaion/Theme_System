@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { RefreshIcon, UserIcon } from "@hugeicons/core-free-icons";
 import { ColorPicker } from "@/components/color-picker";
+import { ThemeTabs } from "@/components/theme-tabs";
 import {
   clonePalette,
   cloneRadius,
@@ -268,20 +269,27 @@ export function PalettePlayground() {
           ))}
         </div>
 
-        <div className="mt-4 flex flex-wrap items-end gap-4 rounded-default border border-border bg-surface-secondary p-4">
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex size-14 items-center justify-center rounded-large bg-primary text-primary-foreground">
-              <HugeiconsIcon icon={UserIcon} size={24} strokeWidth={1.75} />
+        <div className="mt-4 flex flex-col gap-4 rounded-default border border-border bg-surface-secondary p-4">
+          <div className="flex flex-wrap items-end gap-4">
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex size-14 items-center justify-center rounded-large bg-primary text-primary-foreground">
+                <HugeiconsIcon icon={UserIcon} size={24} strokeWidth={1.75} />
+              </div>
+              <span className="text-[11px] text-text-secondary">Large</span>
             </div>
-            <span className="text-[11px] text-text-secondary">Large</span>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-10 w-24 rounded-default border border-border bg-surface" />
+              <span className="text-[11px] text-text-secondary">Default</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-8 w-16 rounded-small border border-border bg-surface" />
+              <span className="text-[11px] text-text-secondary">Small</span>
+            </div>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="h-10 w-24 rounded-default border border-border bg-surface" />
-            <span className="text-[11px] text-text-secondary">Default</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="h-8 w-16 rounded-small border border-border bg-surface" />
-            <span className="text-[11px] text-text-secondary">Small</span>
+
+          <div className="rounded-default bg-surface p-3">
+            <p className="mb-2 text-[11px] text-text-secondary">Tab · rounded-large</p>
+            <ThemeTabs items={["Overview", "Tokens", "Preview"]} defaultValue="Overview" />
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { IconButton } from "@/components/icon-button";
 import { PalettePlayground } from "@/components/palette-playground";
+import { ThemeTabs } from "@/components/theme-tabs";
 
 export default function Home() {
   const [activeNav, setActiveNav] = useState("home");
@@ -78,7 +79,8 @@ export default function Home() {
         <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Radius</h2>
           <p className="mt-1 text-sm text-text-secondary">
-            Default for UI chrome, small for compact chips, large for avatars and photos.
+            Default for UI chrome, small for compact chips, large for avatars, photos, and
+            pill tabs.
           </p>
           <div className="mt-4 flex flex-wrap items-end gap-6">
             <div className="flex flex-col items-center gap-2">
@@ -95,6 +97,13 @@ export default function Home() {
               <div className="h-9 w-20 rounded-small border border-border bg-surface-secondary" />
               <span className="text-xs text-text-secondary">rounded-small</span>
             </div>
+          </div>
+
+          <div className="mt-6">
+            <p className="mb-3 text-xs text-text-secondary">
+              Tab · track uses secondary surface · active uses surface · radius large
+            </p>
+            <ThemeTabs items={["Overview", "Tokens", "Preview"]} defaultValue="Overview" />
           </div>
         </section>
 
