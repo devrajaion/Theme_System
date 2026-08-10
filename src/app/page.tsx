@@ -162,6 +162,13 @@ export default function Home() {
 
         <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Buttons</h2>
+          <p className="mt-1 text-sm text-text-secondary">
+            Press Tab to move focus — soft background glow from{" "}
+            <code className="rounded-small bg-surface-secondary px-1.5 py-0.5 text-text-primary">
+              --ring
+            </code>{" "}
+            at 50% opacity (shared CN style), not a hard outline.
+          </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <button
               type="button"

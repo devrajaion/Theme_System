@@ -23,6 +23,9 @@
   --primary: #3e63dd;
   --primary-foreground: #ffffff;
 
+  /* Keyboard focus ring — very soft BG glow */
+  --ring: #000000;
+
   /* Radius tokens (shared across themes) */
   --radius-default: 6px;
   --radius-small: 4px;
@@ -54,6 +57,8 @@
   --primary: #3e63dd;
   --primary-foreground: #ffffff;
 
+  --ring: #ffffff;
+
   --background: var(--surface);
   --foreground: var(--text-primary);
 }
@@ -77,6 +82,7 @@
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-ring: var(--ring);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -112,6 +118,49 @@ input[type="submit"]:not(:disabled),
 input[type="reset"]:not(:disabled),
 select:not(:disabled) {
   cursor: pointer;
+}
+
+/* Keyboard focus — subtle BG glow shadow only (no harsh border swap) */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 12%, transparent);
+}
+
+.dark :focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 14%, transparent);
+}
+
+.ui-interactive:focus-visible,
+.ui-primary:focus-visible,
+.theme-tab:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+a[href]:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 12%, transparent);
+}
+
+.dark .ui-interactive:focus-visible,
+.dark .ui-primary:focus-visible,
+.dark .theme-tab:focus-visible,
+.dark button:focus-visible,
+.dark [role="button"]:focus-visible,
+.dark [role="tab"]:focus-visible,
+.dark a[href]:focus-visible,
+.dark summary:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 14%, transparent);
 }
 
 /* Interactive helpers */

@@ -31,6 +31,7 @@ Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utili
 | Icon | `#808080` | `#a3a3a3` | `text-icon` |
 | Active Icon | `#414141` | `#e5e5e5` | `text-icon-active` |
 | Primary Theme | `#3e63dd` | `#3e63dd` | `bg-primary` / `.ui-primary` |
+| Focus Ring | `#000000` @ 12% | `#ffffff` @ 14% | soft box-shadow glow |
 
 ### Radius (shared)
 
@@ -41,3 +42,5 @@ Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utili
 | Large | `999px` | `rounded-large` |
 
 Use `.ui-interactive` and `.ui-icon` for hover/active/disabled icon button behavior. Use `.ui-primary` or `bg-primary` for primary action buttons.
+
+Keyboard focus matches shared CN: soft **box-shadow glow** `0 0 0 3px` at **50% ring opacity** (no hard offset ring). Tab to preview.

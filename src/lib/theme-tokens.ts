@@ -63,6 +63,12 @@ export const TOKEN_META: TokenMeta[] = [
     label: "Primary Foreground",
     description: "Text/icon on primary",
   },
+  {
+    key: "ring",
+    cssVar: "--ring",
+    label: "Focus Ring",
+    description: "Soft focus glow base color",
+  },
 ];
 
 export const RADIUS_META: RadiusMeta[] = [
@@ -106,6 +112,7 @@ export const DEFAULT_LIGHT: Palette = {
   "icon-active": { color: "#414141" },
   primary: { color: "#3e63dd" },
   "primary-foreground": { color: "#ffffff" },
+  ring: { color: "#000000" },
 };
 
 export const DEFAULT_DARK: Palette = {
@@ -122,6 +129,7 @@ export const DEFAULT_DARK: Palette = {
   "icon-active": { color: "#e5e5e5" },
   primary: { color: "#3e63dd" },
   "primary-foreground": { color: "#ffffff" },
+  ring: { color: "#ffffff" },
 };
 
 export const DEFAULT_RADIUS: RadiusTokens = {
