@@ -18,7 +18,7 @@ Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utili
 | Token | Light | Dark | Utility |
 | --- | --- | --- | --- |
 | Surface | `#ffffff` | `#1c1c1c` | `bg-surface` |
-| Secondary Surface | `#fafafa` | `#1f1f1f` | `bg-surface-secondary` |
+| Secondary Surface | `#fcfcfc` | `#1f1f1f` | `bg-surface-secondary` |
 | Border | `#f5f5f5` | `#222222` | `border-border` |
 | Primary Text | `#404040` | `#e3e3e3` | `text-text-primary` |
 | Secondary Text | `#7A7A7A` | `#A2A2A2` | `text-text-secondary` |

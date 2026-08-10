@@ -63,7 +63,7 @@ export const TOKEN_META: TokenMeta[] = [
 
 export const DEFAULT_LIGHT: Palette = {
   surface: { color: "#ffffff" },
-  "surface-secondary": { color: "#fafafa" },
+  "surface-secondary": { color: "#fcfcfc" },
   border: { color: "#f5f5f5" },
   "text-primary": { color: "#404040" },
   "text-secondary": { color: "#7a7a7a" },
