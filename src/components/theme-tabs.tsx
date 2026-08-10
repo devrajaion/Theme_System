@@ -12,10 +12,7 @@ export function ThemeTabs({ items, defaultValue, className = "" }: ThemeTabsProp
   const [active, setActive] = useState(defaultValue ?? items[0] ?? "");
 
   return (
-    <div
-      className={`inline-flex gap-1 rounded-large border border-border bg-surface-secondary p-1 ${className}`}
-      role="tablist"
-    >
+    <div className={`theme-tabs ${className}`} role="tablist">
       {items.map((item) => {
         const isActive = item === active;
 
@@ -26,13 +23,10 @@ export function ThemeTabs({ items, defaultValue, className = "" }: ThemeTabsProp
             role="tab"
             aria-selected={isActive}
             onClick={() => setActive(item)}
-            className={`rounded-large px-3.5 py-1.5 text-sm font-medium transition-colors ${
-              isActive
-                ? "border border-border bg-surface text-text-primary"
-                : "border border-transparent bg-transparent text-text-secondary hover:text-text-primary"
-            }`}
+            className="theme-tab"
           >
-            {item}
+            {isActive ? <span className="theme-tab-fill" aria-hidden /> : null}
+            <span className="theme-tab-label">{item}</span>
           </button>
         );
       })}

@@ -36,7 +36,7 @@ function TokenRow({
   onChange: (next: TokenValue) => void;
 }) {
   return (
-    <div className="flex flex-col gap-2 rounded-default border border-border bg-surface-secondary p-3 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col gap-2 rounded-default border border-border-secondary bg-surface-secondary p-3 sm:flex-row sm:items-center sm:justify-between">
       <div className="min-w-0">
         <p className="text-sm font-medium text-text-primary">{label}</p>
         {description ? (
@@ -91,7 +91,7 @@ function RadiusRow({
   };
 
   return (
-    <div className="flex flex-col gap-3 rounded-default border border-border bg-surface-secondary p-3">
+    <div className="flex flex-col gap-3 rounded-default border border-border-secondary bg-surface-secondary p-3">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-sm font-medium text-text-primary">{label}</p>
@@ -229,7 +229,7 @@ export function PalettePlayground() {
         </div>
       </div>
 
-      <div className="mt-4 inline-flex rounded-default border border-border bg-surface-secondary p-1 text-xs">
+      <div className="mt-4 inline-flex rounded-default border border-border-secondary bg-surface-secondary p-1 text-xs">
         <span
           className={`rounded-small px-2.5 py-1 ${
             mode === "light" ? "bg-active-bg font-medium text-text-primary" : "text-text-secondary"
@@ -269,7 +269,7 @@ export function PalettePlayground() {
           ))}
         </div>
 
-        <div className="mt-4 flex flex-col gap-4 rounded-default border border-border bg-surface-secondary p-4">
+        <div className="mt-4 flex flex-col gap-4 rounded-default border border-border-secondary bg-surface-secondary p-4">
           <div className="flex flex-wrap items-end gap-4">
             <div className="flex flex-col items-center gap-2">
               <div className="flex size-14 items-center justify-center rounded-large bg-primary text-primary-foreground">

@@ -92,7 +92,7 @@ export function ColorPicker({
               aria-label={`${label} hex`}
               color={safeColor}
               onChange={(next) => onColorChange(next.toLowerCase())}
-              className="flex-1 rounded-small border border-border bg-surface-secondary px-2 py-1.5 font-mono text-xs text-text-primary outline-none focus:border-primary"
+              className="flex-1 rounded-small border border-border-secondary bg-surface-secondary px-2 py-1.5 font-mono text-xs text-text-primary outline-none focus:border-primary"
             />
           </div>
 

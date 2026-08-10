@@ -56,14 +56,18 @@ export default function Home() {
 
         <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Surfaces & states</h2>
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {[
               { name: "Surface", className: "bg-surface border border-border" },
               {
                 name: "Secondary Surface",
-                className: "bg-surface-secondary border border-border",
+                className: "bg-surface-secondary border border-border-secondary",
               },
               { name: "Border", className: "bg-border border border-border" },
+              {
+                name: "Secondary Border",
+                className: "bg-border-secondary border border-border",
+              },
               { name: "Hover", className: "bg-hover-bg border border-border" },
               { name: "Active", className: "bg-active-bg border border-border" },
               { name: "Primary", className: "bg-primary border border-border" },
@@ -90,20 +94,29 @@ export default function Home() {
               <span className="text-xs text-text-secondary">rounded-large</span>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <div className="h-12 w-28 rounded-default border border-border bg-surface-secondary" />
+              <div className="h-12 w-28 rounded-default border border-border-secondary bg-surface-secondary" />
               <span className="text-xs text-text-secondary">rounded-default</span>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <div className="h-9 w-20 rounded-small border border-border bg-surface-secondary" />
+              <div className="h-9 w-20 rounded-small border border-border-secondary bg-surface-secondary" />
               <span className="text-xs text-text-secondary">rounded-small</span>
             </div>
           </div>
 
           <div className="mt-6">
             <p className="mb-3 text-xs text-text-secondary">
-              Tab · track uses secondary surface · active uses surface · radius large
+              Tab · track surface + border · active secondary surface + secondary border · radius
+              large
             </p>
-            <ThemeTabs items={["Overview", "Tokens", "Preview"]} defaultValue="Overview" />
+            <div className="flex flex-wrap items-center gap-3">
+              <ThemeTabs items={["Overview", "Tokens", "Preview"]} defaultValue="Overview" />
+              <div
+                className="h-9 w-16 rounded-large border border-border-secondary"
+                style={{ backgroundColor: "var(--surface-secondary)" }}
+                title="Secondary surface reference"
+              />
+              <span className="text-xs text-text-secondary">= secondary surface</span>
+            </div>
           </div>
         </section>
 
