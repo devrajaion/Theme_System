@@ -56,10 +56,10 @@ export function ColorPicker({
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((current) => !current)}
-        className="ui-interactive flex items-center gap-2 rounded-lg border border-border bg-surface px-2 py-1.5"
+        className="ui-interactive flex items-center gap-2 rounded-default border border-border bg-surface px-2 py-1.5"
       >
         <span
-          className="size-7 rounded-md border border-border shadow-[inset_0_0_0_1px_rgb(0_0_0_/_4%)]"
+          className="size-7 rounded-small border border-border shadow-[inset_0_0_0_1px_rgb(0_0_0_/_4%)]"
           style={{
             backgroundColor: safeColor,
             opacity: showAlpha ? alpha : 1,
@@ -76,7 +76,7 @@ export function ColorPicker({
           id={panelId}
           role="dialog"
           aria-label={`${label} color picker`}
-          className="absolute right-0 z-50 mt-2 w-[240px] rounded-xl border border-border bg-surface p-3 shadow-[0_12px_40px_rgb(0_0_0_/_12%)]"
+          className="absolute right-0 z-50 mt-2 w-[240px] rounded-default border border-border bg-surface p-3 shadow-[0_12px_40px_rgb(0_0_0_/_12%)]"
         >
           <div className="theme-color-picker">
             <HexColorPicker
@@ -92,7 +92,7 @@ export function ColorPicker({
               aria-label={`${label} hex`}
               color={safeColor}
               onChange={(next) => onColorChange(next.toLowerCase())}
-              className="flex-1 rounded-md border border-border bg-surface-secondary px-2 py-1.5 font-mono text-xs text-text-primary outline-none focus:border-primary"
+              className="flex-1 rounded-small border border-border bg-surface-secondary px-2 py-1.5 font-mono text-xs text-text-primary outline-none focus:border-primary"
             />
           </div>
 

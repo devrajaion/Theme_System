@@ -8,6 +8,7 @@ import {
   Search01Icon,
   UserIcon,
 } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { IconButton } from "@/components/icon-button";
 import { PalettePlayground } from "@/components/palette-playground";
@@ -30,20 +31,20 @@ export default function Home() {
       </header>
 
       <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 py-8 sm:px-6">
-        <section className="rounded-xl border border-border bg-surface p-6">
+        <section className="rounded-default border border-border bg-surface p-6">
           <h1 className="text-2xl font-semibold tracking-tight text-text-primary">
             Theme testing environment
           </h1>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary">
-            Adjust every token with color pickers, flip light/dark, and check how surfaces,
-            type, icons, and buttons respond. Reload the page anytime to discard drafts and
-            restore the shipped defaults.
+            Adjust color and radius tokens, flip light/dark, and check how surfaces, type,
+            icons, and buttons respond. Reload the page anytime to discard drafts and restore
+            the shipped defaults.
           </p>
         </section>
 
         <PalettePlayground />
 
-        <section className="rounded-xl border border-border bg-surface p-6">
+        <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Typography</h2>
           <div className="mt-4 flex flex-col gap-3">
             <p className="text-base text-text-primary">Primary text</p>
@@ -52,7 +53,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-border bg-surface p-6">
+        <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Surfaces & states</h2>
           <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {[
@@ -67,14 +68,37 @@ export default function Home() {
               { name: "Primary", className: "bg-primary border border-border" },
             ].map((swatch) => (
               <div key={swatch.name} className="flex flex-col gap-2">
-                <div className={`h-16 rounded-lg ${swatch.className}`} />
+                <div className={`h-16 rounded-default ${swatch.className}`} />
                 <p className="text-xs font-medium text-text-primary">{swatch.name}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="rounded-xl border border-border bg-surface p-6">
+        <section className="rounded-default border border-border bg-surface p-6">
+          <h2 className="text-sm font-medium text-text-primary">Radius</h2>
+          <p className="mt-1 text-sm text-text-secondary">
+            Default for UI chrome, small for compact chips, large for avatars and photos.
+          </p>
+          <div className="mt-4 flex flex-wrap items-end gap-6">
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex size-16 items-center justify-center rounded-large bg-primary text-primary-foreground">
+                <HugeiconsIcon icon={UserIcon} size={28} strokeWidth={1.75} />
+              </div>
+              <span className="text-xs text-text-secondary">rounded-large</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-12 w-28 rounded-default border border-border bg-surface-secondary" />
+              <span className="text-xs text-text-secondary">rounded-default</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="h-9 w-20 rounded-small border border-border bg-surface-secondary" />
+              <span className="text-xs text-text-secondary">rounded-small</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Interactive icons</h2>
           <p className="mt-1 text-sm text-text-secondary">
             Hover and press to preview icon and background states against your palette.
@@ -114,38 +138,38 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-border bg-surface p-6">
+        <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Buttons</h2>
           <div className="mt-4 flex flex-wrap gap-3">
             <button
               type="button"
-              className="ui-primary rounded-lg px-4 py-2 text-sm font-medium"
+              className="ui-primary rounded-default px-4 py-2 text-sm font-medium"
             >
               Primary action
             </button>
             <button
               type="button"
-              className="ui-interactive rounded-lg border border-border px-4 py-2 text-sm font-medium"
+              className="ui-interactive rounded-default border border-border px-4 py-2 text-sm font-medium"
             >
               Secondary action
             </button>
             <button
               type="button"
-              className="rounded-lg bg-active-bg px-4 py-2 text-sm font-medium text-text-primary"
+              className="rounded-default bg-active-bg px-4 py-2 text-sm font-medium text-text-primary"
             >
               Active surface
             </button>
             <button
               type="button"
               disabled
-              className="ui-primary rounded-lg px-4 py-2 text-sm font-medium"
+              className="ui-primary rounded-default px-4 py-2 text-sm font-medium"
             >
               Primary disabled
             </button>
             <button
               type="button"
               disabled
-              className="ui-interactive rounded-lg border border-border px-4 py-2 text-sm font-medium"
+              className="ui-interactive rounded-default border border-border px-4 py-2 text-sm font-medium"
             >
               Disabled
             </button>

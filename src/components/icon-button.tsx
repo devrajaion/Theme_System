@@ -21,7 +21,7 @@ export function IconButton({
       type="button"
       aria-label={label}
       data-active={active || undefined}
-      className={`ui-interactive inline-flex size-10 items-center justify-center rounded-lg border border-border ${className}`}
+      className={`ui-interactive inline-flex size-10 items-center justify-center rounded-default border border-border ${className}`}
       {...props}
     >
       <HugeiconsIcon

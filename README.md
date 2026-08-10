@@ -29,4 +29,12 @@ Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utili
 | Active Icon | `#414141` | `#e5e5e5` | `text-icon-active` |
 | Primary Theme | `#3e63dd` | `#3e63dd` | `bg-primary` / `.ui-primary` |
 
+### Radius (shared)
+
+| Token | Value | Utility |
+| --- | --- | --- |
+| Default | `6px` | `rounded-default` |
+| Small | `4px` | `rounded-small` |
+| Large | `999px` | `rounded-large` |
+
 Use `.ui-interactive` and `.ui-icon` for hover/active/disabled icon button behavior. Use `.ui-primary` or `bg-primary` for primary action buttons.

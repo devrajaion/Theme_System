@@ -18,7 +18,7 @@ export function ThemeToggle() {
       <button
         type="button"
         aria-label="Toggle theme"
-        className="ui-interactive inline-flex size-10 items-center justify-center rounded-lg border border-border"
+        className="ui-interactive inline-flex size-10 items-center justify-center rounded-default border border-border"
       />
     );
   }
@@ -30,7 +30,7 @@ export function ThemeToggle() {
       type="button"
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="ui-interactive inline-flex size-10 items-center justify-center rounded-lg border border-border"
+      className="ui-interactive inline-flex size-10 items-center justify-center rounded-default border border-border"
     >
       <HugeiconsIcon
         icon={isDark ? Sun03Icon : Moon02Icon}

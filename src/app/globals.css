@@ -22,6 +22,11 @@
   --primary: #3e63dd;
   --primary-foreground: #ffffff;
 
+  /* Radius tokens (shared across themes) */
+  --radius-default: 6px;
+  --radius-small: 4px;
+  --radius-large: 999px;
+
   --background: var(--surface);
   --foreground: var(--text-primary);
 }
@@ -72,6 +77,10 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --radius-default: var(--radius-default);
+  --radius-small: var(--radius-small);
+  --radius-large: var(--radius-large);
 
   --font-sans: var(--font-inter);
 }

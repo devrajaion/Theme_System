@@ -1,21 +1,6 @@
 export type ThemeMode = "light" | "dark";
 
-export type SolidTokenKey =
-  | "surface"
-  | "surface-secondary"
-  | "border"
-  | "text-primary"
-  | "text-secondary"
-  | "text-muted"
-  | "active-bg"
-  | "icon"
-  | "icon-active"
-  | "primary"
-  | "primary-foreground";
-
-export type AlphaTokenKey = "hover-bg" | "active-bg-alpha";
-
-/** Tokens stored as hex + optional alpha (0–1). */
+/** Color tokens stored as hex + optional alpha (0–1). */
 export type TokenValue = {
   color: string;
   alpha?: number;
@@ -29,6 +14,19 @@ export type TokenMeta = {
   label: string;
   description?: string;
   hasAlpha?: boolean;
+};
+
+export type RadiusKey = "radius-default" | "radius-small" | "radius-large";
+
+export type RadiusTokens = Record<RadiusKey, number>;
+
+export type RadiusMeta = {
+  key: RadiusKey;
+  cssVar: `--${RadiusKey}`;
+  label: string;
+  description: string;
+  min: number;
+  max: number;
 };
 
 export const TOKEN_META: TokenMeta[] = [
@@ -58,6 +56,33 @@ export const TOKEN_META: TokenMeta[] = [
     cssVar: "--primary-foreground",
     label: "Primary Foreground",
     description: "Text/icon on primary",
+  },
+];
+
+export const RADIUS_META: RadiusMeta[] = [
+  {
+    key: "radius-default",
+    cssVar: "--radius-default",
+    label: "Radius Default",
+    description: "Used almost everywhere — cards, buttons, inputs",
+    min: 0,
+    max: 32,
+  },
+  {
+    key: "radius-small",
+    cssVar: "--radius-small",
+    label: "Radius Small",
+    description: "Compact controls and tight chips",
+    min: 0,
+    max: 24,
+  },
+  {
+    key: "radius-large",
+    cssVar: "--radius-large",
+    label: "Radius Large",
+    description: "Avatars, photos, fully rounded media",
+    min: 0,
+    max: 999,
   },
 ];
 
@@ -91,6 +116,12 @@ export const DEFAULT_DARK: Palette = {
   "primary-foreground": { color: "#ffffff" },
 };
 
+export const DEFAULT_RADIUS: RadiusTokens = {
+  "radius-default": 6,
+  "radius-small": 4,
+  "radius-large": 999,
+};
+
 export function clonePalette(palette: Palette): Palette {
   return Object.fromEntries(
     Object.entries(palette).map(([key, value]) => [
@@ -98,6 +129,10 @@ export function clonePalette(palette: Palette): Palette {
       { color: value.color, alpha: value.alpha },
     ]),
   );
+}
+
+export function cloneRadius(radius: RadiusTokens): RadiusTokens {
+  return { ...radius };
 }
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
@@ -138,6 +173,13 @@ export function paletteToCssBlock(selector: string, palette: Palette): string {
   });
 
   return `${selector} {\n${lines.join("\n")}\n}`;
+}
+
+export function radiusToCssBlock(radius: RadiusTokens): string {
+  const lines = RADIUS_META.map(
+    (token) => `  ${token.cssVar}: ${radius[token.key]}px;`,
+  );
+  return `:root {\n${lines.join("\n")}\n}`;
 }
 
 export function normalizeHex(input: string): string | null {
