@@ -23,8 +23,8 @@ Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utili
 | Primary Text | `#404040` | `#e3e3e3` | `text-text-primary` |
 | Secondary Text | `#7A7A7A` | `#A2A2A2` | `text-text-secondary` |
 | Muted Text | `#DEDEDE` | `#4C4C4C` | `text-text-muted` |
-| Hover Background | `#EFEFEF` 50% | `#616161` 20% | `bg-hover-bg` |
-| Active Background | `#EFEFEF` 100% | `#616161` 30% | `bg-active-bg` |
+| Hover Background | `#EFEFEF` 35% | `#616161` 20% | `bg-hover-bg` |
+| Active Background | `#EFEFEF` 75% | `#616161` 30% | `bg-active-bg` |
 | Icon | `#808080` | `#a3a3a3` | `text-icon` |
 | Active Icon | `#414141` | `#e5e5e5` | `text-icon-active` |
 | Primary Theme | `#3e63dd` | `#3e63dd` | `bg-primary` / `.ui-primary` |

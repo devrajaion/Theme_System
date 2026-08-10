@@ -12,8 +12,8 @@
   --text-secondary: #7a7a7a;
   --text-muted: #dedede;
 
-  --hover-bg: rgb(239 239 239 / 50%);
-  --active-bg: #efefef;
+  --hover-bg: rgb(239 239 239 / 35%);
+  --active-bg: rgb(239 239 239 / 75%);
 
   --icon: #808080;
   --icon-active: #414141;
