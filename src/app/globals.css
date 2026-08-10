@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   Design Tokens — Light Theme (default)
+   ───────────────────────────────────────────── */
+:root {
+  --surface: #ffffff;
+  --surface-secondary: #fafafa;
+  --border: #f5f5f5;
+
+  --text-primary: #404040;
+  --text-secondary: #7a7a7a;
+  --text-muted: #dedede;
+
+  --hover-bg: rgb(239 239 239 / 50%);
+  --active-bg: #efefef;
+
+  --icon: #808080;
+  --icon-active: #414141;
+
+  /* Shared brand / primary action color */
+  --primary: #3e63dd;
+  --primary-foreground: #ffffff;
+
+  --background: var(--surface);
+  --foreground: var(--text-primary);
+}
+
+/* ─────────────────────────────────────────────
+   Design Tokens — Dark Theme
+   ───────────────────────────────────────────── */
+.dark {
+  --surface: #141414;
+  --surface-secondary: #1f1f1f;
+  --border: #1E1E1E;
+
+  --text-primary: #e3e3e3;
+  --text-secondary: #a2a2a2;
+  --text-muted: #4c4c4c;
+
+  --hover-bg: rgb(97 97 97 / 20%);
+  --active-bg: rgb(97 97 97 / 30%);
+
+  --icon: #a3a3a3;
+  --icon-active: #e5e5e5;
+
+  --primary: #3e63dd;
+  --primary-foreground: #ffffff;
+
+  --background: var(--surface);
+  --foreground: var(--text-primary);
+}
+
+/* Map tokens into Tailwind theme utilities */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-border: var(--border);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-hover-bg: var(--hover-bg);
+  --color-active-bg: var(--active-bg);
+
+  --color-icon: var(--icon);
+  --color-icon-active: var(--icon-active);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-inter);
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+a[href],
+summary,
+label[for],
+input[type="button"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+select:not(:disabled) {
+  cursor: pointer;
+}
+
+/* Interactive helpers */
+.ui-interactive {
+  color: var(--text-primary);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.ui-interactive:hover:not(:disabled) {
+  background: var(--hover-bg);
+}
+
+.ui-interactive:active:not(:disabled) {
+  background: var(--active-bg);
+}
+
+.ui-interactive:disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.ui-interactive:disabled .ui-icon {
+  color: var(--text-muted);
+}
+
+.ui-icon {
+  color: var(--icon);
+  transition: color 150ms ease;
+}
+
+.ui-interactive:hover:not(:disabled) .ui-icon,
+.ui-interactive:active:not(:disabled) .ui-icon,
+.ui-interactive[data-active="true"] .ui-icon {
+  color: var(--icon-active);
+}
+
+.ui-interactive[data-active="true"] {
+  background: var(--active-bg);
+}
+
+/* Primary action button */
+.ui-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  cursor: pointer;
+  transition: opacity 150ms ease, filter 150ms ease;
+}
+
+.ui-primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.ui-primary:active:not(:disabled) {
+  filter: brightness(0.94);
+}
+
+.ui-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
