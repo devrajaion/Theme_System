@@ -1,19 +1,18 @@
 "use client";
 
-import { HugeiconsIcon } from "@hugeicons/react";
-import type { ComponentProps, ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type IconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  icon: ComponentProps<typeof HugeiconsIcon>["icon"];
   label: string;
   active?: boolean;
+  children: ReactNode;
 };
 
 export function IconButton({
-  icon,
   label,
   active = false,
   className = "",
+  children,
   ...props
 }: IconButtonProps) {
   return (
@@ -24,12 +23,9 @@ export function IconButton({
       className={`ui-interactive inline-flex size-10 items-center justify-center rounded-default border border-border ${className}`}
       {...props}
     >
-      <HugeiconsIcon
-        icon={icon}
-        size={20}
-        strokeWidth={1.75}
-        className="ui-icon"
-      />
+      <span className="ui-icon inline-flex items-center justify-center [&_svg]:size-5">
+        {children}
+      </span>
     </button>
   );
 }

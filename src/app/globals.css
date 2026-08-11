@@ -21,7 +21,7 @@
 
   /* Shared brand / primary action color */
   --primary: #3e63dd;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #e3e3e3;
 
   /* Keyboard focus ring — very soft BG glow */
   --ring: #000000;
@@ -55,7 +55,7 @@
   --icon-active: #e5e5e5;
 
   --primary: #3e63dd;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #e3e3e3;
 
   --ring: #ffffff;
 
@@ -118,6 +118,17 @@ input[type="submit"]:not(:disabled),
 input[type="reset"]:not(:disabled),
 select:not(:disabled) {
   cursor: pointer;
+}
+
+/* Keep native buttons on theme tokens — color-scheme can otherwise paint UA black/white */
+button,
+[role="button"] {
+  color: var(--text-primary);
+}
+
+button svg,
+[role="button"] svg {
+  color: inherit;
 }
 
 /* Keyboard focus — subtle BG glow shadow only (no harsh border swap) */
@@ -184,7 +195,8 @@ textarea:focus-visible {
   cursor: not-allowed;
 }
 
-.ui-interactive:disabled .ui-icon {
+.ui-interactive:disabled .ui-icon,
+.ui-interactive:disabled svg {
   color: var(--text-muted);
 }
 
@@ -193,9 +205,18 @@ textarea:focus-visible {
   transition: color 150ms ease;
 }
 
+.ui-interactive .ui-icon,
+.ui-interactive svg {
+  color: var(--icon);
+  transition: color 150ms ease;
+}
+
 .ui-interactive:hover:not(:disabled) .ui-icon,
 .ui-interactive:active:not(:disabled) .ui-icon,
-.ui-interactive[data-active="true"] .ui-icon {
+.ui-interactive[data-active="true"] .ui-icon,
+.ui-interactive:hover:not(:disabled) svg,
+.ui-interactive:active:not(:disabled) svg,
+.ui-interactive[data-active="true"] svg {
   color: var(--icon-active);
 }
 
@@ -209,6 +230,10 @@ textarea:focus-visible {
   color: var(--primary-foreground);
   cursor: pointer;
   transition: opacity 150ms ease, filter 150ms ease;
+}
+
+.ui-primary svg {
+  color: var(--primary-foreground);
 }
 
 .ui-primary:hover:not(:disabled) {

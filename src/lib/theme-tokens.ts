@@ -111,7 +111,7 @@ export const DEFAULT_LIGHT: Palette = {
   icon: { color: "#808080" },
   "icon-active": { color: "#414141" },
   primary: { color: "#3e63dd" },
-  "primary-foreground": { color: "#ffffff" },
+  "primary-foreground": { color: "#e3e3e3" },
   ring: { color: "#000000" },
 };
 
@@ -128,7 +128,7 @@ export const DEFAULT_DARK: Palette = {
   icon: { color: "#a3a3a3" },
   "icon-active": { color: "#e5e5e5" },
   primary: { color: "#3e63dd" },
-  "primary-foreground": { color: "#ffffff" },
+  "primary-foreground": { color: "#e3e3e3" },
   ring: { color: "#ffffff" },
 };
 

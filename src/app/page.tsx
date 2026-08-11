@@ -2,13 +2,37 @@
 
 import { useState } from "react";
 import {
+  Add01Icon,
+  Bookmark02Icon,
+  Calendar03Icon,
+  Download01Icon,
+  FavouriteIcon,
+  Folder01Icon,
   Home01Icon,
-  Settings01Icon,
+  Mail01Icon,
+  Message01Icon,
   Notification03Icon,
   Search01Icon,
+  Settings01Icon,
+  StarIcon as HugeStarIcon,
   UserIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  BellIcon,
+  BookmarkIcon,
+  CalendarIcon,
+  ChatRoundDotsIcon,
+  DownloadIcon,
+  FolderIcon,
+  HeartIcon,
+  HomeIcon,
+  LetterIcon,
+  MagnifierIcon,
+  SettingsIcon,
+  StarIcon,
+  UserIcon as SolarUserIcon,
+} from "@solar-icons/react/bold";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { IconButton } from "@/components/icon-button";
 import { PalettePlayground } from "@/components/palette-playground";
@@ -123,40 +147,190 @@ export default function Home() {
         <section className="rounded-default border border-border bg-surface p-6">
           <h2 className="text-sm font-medium text-text-primary">Interactive icons</h2>
           <p className="mt-1 text-sm text-text-secondary">
-            Hover and press to preview icon and background states against your palette.
+            Mixed set — Hugeicons (stroke) and Solar Bold (solid) side by side so you can
+            compare how both styles read against the palette.
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-2">
+
+          <p className="mt-4 text-xs font-medium text-text-secondary">Hugeicons · stroke</p>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
             <IconButton
-              icon={Home01Icon}
               label="Home"
               active={activeNav === "home"}
               onClick={() => setActiveNav("home")}
-            />
+            >
+              <HugeiconsIcon icon={Home01Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
             <IconButton
-              icon={Search01Icon}
               label="Search"
               active={activeNav === "search"}
               onClick={() => setActiveNav("search")}
-            />
+            >
+              <HugeiconsIcon icon={Search01Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
             <IconButton
-              icon={Notification03Icon}
               label="Notifications"
               active={activeNav === "notifications"}
               onClick={() => setActiveNav("notifications")}
-            />
+            >
+              <HugeiconsIcon icon={Notification03Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
             <IconButton
-              icon={UserIcon}
+              label="Messages"
+              active={activeNav === "messages"}
+              onClick={() => setActiveNav("messages")}
+            >
+              <HugeiconsIcon icon={Message01Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton
+              label="Mail"
+              active={activeNav === "mail"}
+              onClick={() => setActiveNav("mail")}
+            >
+              <HugeiconsIcon icon={Mail01Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton
+              label="Calendar"
+              active={activeNav === "calendar"}
+              onClick={() => setActiveNav("calendar")}
+            >
+              <HugeiconsIcon icon={Calendar03Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton
+              label="Folder"
+              active={activeNav === "folder"}
+              onClick={() => setActiveNav("folder")}
+            >
+              <HugeiconsIcon icon={Folder01Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton
+              label="Bookmark"
+              active={activeNav === "bookmark"}
+              onClick={() => setActiveNav("bookmark")}
+            >
+              <HugeiconsIcon icon={Bookmark02Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton
+              label="Favorites"
+              active={activeNav === "favorites"}
+              onClick={() => setActiveNav("favorites")}
+            >
+              <HugeiconsIcon icon={FavouriteIcon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton
+              label="Starred"
+              active={activeNav === "starred"}
+              onClick={() => setActiveNav("starred")}
+            >
+              <HugeiconsIcon icon={HugeStarIcon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton
               label="Profile"
               active={activeNav === "profile"}
               onClick={() => setActiveNav("profile")}
-            />
+            >
+              <HugeiconsIcon icon={UserIcon} size={20} strokeWidth={1.75} />
+            </IconButton>
             <IconButton
-              icon={Settings01Icon}
               label="Settings"
               active={activeNav === "settings"}
               onClick={() => setActiveNav("settings")}
-            />
-            <IconButton icon={Settings01Icon} label="Disabled" disabled />
+            >
+              <HugeiconsIcon icon={Settings01Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
+            <IconButton label="Disabled" disabled>
+              <HugeiconsIcon icon={Settings01Icon} size={20} strokeWidth={1.75} />
+            </IconButton>
+          </div>
+
+          <p className="mt-5 text-xs font-medium text-text-secondary">Solar Bold · solid</p>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <IconButton
+              label="Home solid"
+              active={activeNav === "home-solid"}
+              onClick={() => setActiveNav("home-solid")}
+            >
+              <HomeIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Search solid"
+              active={activeNav === "search-solid"}
+              onClick={() => setActiveNav("search-solid")}
+            >
+              <MagnifierIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Notifications solid"
+              active={activeNav === "notifications-solid"}
+              onClick={() => setActiveNav("notifications-solid")}
+            >
+              <BellIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Messages solid"
+              active={activeNav === "messages-solid"}
+              onClick={() => setActiveNav("messages-solid")}
+            >
+              <ChatRoundDotsIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Mail solid"
+              active={activeNav === "mail-solid"}
+              onClick={() => setActiveNav("mail-solid")}
+            >
+              <LetterIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Calendar solid"
+              active={activeNav === "calendar-solid"}
+              onClick={() => setActiveNav("calendar-solid")}
+            >
+              <CalendarIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Folder solid"
+              active={activeNav === "folder-solid"}
+              onClick={() => setActiveNav("folder-solid")}
+            >
+              <FolderIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Bookmark solid"
+              active={activeNav === "bookmark-solid"}
+              onClick={() => setActiveNav("bookmark-solid")}
+            >
+              <BookmarkIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Favorites solid"
+              active={activeNav === "favorites-solid"}
+              onClick={() => setActiveNav("favorites-solid")}
+            >
+              <HeartIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Starred solid"
+              active={activeNav === "starred-solid"}
+              onClick={() => setActiveNav("starred-solid")}
+            >
+              <StarIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Profile solid"
+              active={activeNav === "profile-solid"}
+              onClick={() => setActiveNav("profile-solid")}
+            >
+              <SolarUserIcon color="currentColor" />
+            </IconButton>
+            <IconButton
+              label="Settings solid"
+              active={activeNav === "settings-solid"}
+              onClick={() => setActiveNav("settings-solid")}
+            >
+              <SettingsIcon color="currentColor" />
+            </IconButton>
+            <IconButton label="Disabled solid" disabled>
+              <SettingsIcon color="currentColor" />
+            </IconButton>
           </div>
         </section>
 
@@ -167,39 +341,54 @@ export default function Home() {
             <code className="rounded-small bg-surface-secondary px-1.5 py-0.5 text-text-primary">
               --ring
             </code>{" "}
-            at 50% opacity (shared CN style), not a hard outline.
+            at 50% opacity (shared CN style), not a hard outline. Icon buttons mix Hugeicons and
+            Solar Bold.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <button
               type="button"
-              className="ui-primary rounded-default px-4 py-2 text-sm font-medium"
+              className="ui-primary inline-flex items-center gap-2 rounded-default px-4 py-2 text-sm font-medium"
             >
+              <HugeiconsIcon icon={Add01Icon} size={18} strokeWidth={1.75} />
               Primary action
             </button>
             <button
               type="button"
-              className="ui-interactive rounded-default border border-border px-4 py-2 text-sm font-medium"
+              className="ui-interactive inline-flex items-center gap-2 rounded-default border border-border px-4 py-2 text-sm font-medium"
             >
+              <DownloadIcon color="currentColor" size={18} />
               Secondary action
             </button>
             <button
               type="button"
-              className="rounded-default bg-active-bg px-4 py-2 text-sm font-medium text-text-primary"
+              className="inline-flex items-center gap-2 rounded-default bg-active-bg px-4 py-2 text-sm font-medium text-text-primary"
             >
+              <span className="ui-icon inline-flex">
+                <HugeiconsIcon icon={Search01Icon} size={18} strokeWidth={1.75} />
+              </span>
               Active surface
             </button>
             <button
               type="button"
-              disabled
-              className="ui-primary rounded-default px-4 py-2 text-sm font-medium"
+              className="ui-interactive inline-flex items-center gap-2 rounded-default border border-border px-4 py-2 text-sm font-medium"
             >
+              <HomeIcon color="currentColor" size={18} />
+              Home
+            </button>
+            <button
+              type="button"
+              disabled
+              className="ui-primary inline-flex items-center gap-2 rounded-default px-4 py-2 text-sm font-medium"
+            >
+              <HugeiconsIcon icon={Download01Icon} size={18} strokeWidth={1.75} />
               Primary disabled
             </button>
             <button
               type="button"
               disabled
-              className="ui-interactive rounded-default border border-border px-4 py-2 text-sm font-medium"
+              className="ui-interactive inline-flex items-center gap-2 rounded-default border border-border px-4 py-2 text-sm font-medium"
             >
+              <SettingsIcon color="currentColor" size={18} />
               Disabled
             </button>
           </div>
