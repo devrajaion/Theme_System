@@ -107,7 +107,7 @@ export const DEFAULT_LIGHT: Palette = {
   "text-secondary": { color: "#7a7a7a" },
   "text-muted": { color: "#dedede" },
   "hover-bg": { color: "#efefef", alpha: 0.35 },
-  "active-bg": { color: "#efefef", alpha: 0.75 },
+  "active-bg": { color: "#efefef", alpha: 0.45 },
   icon: { color: "#808080" },
   "icon-active": { color: "#414141" },
   primary: { color: "#3e63dd" },
