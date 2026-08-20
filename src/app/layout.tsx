@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Theme Testing",
-  description: "Next.js base UI with light and dark design tokens",
+  title: "Theme Studio — shadcn Theme Playground",
+  description: "Live OKLCH theme editor and shadcn component preview",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

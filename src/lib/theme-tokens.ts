@@ -1,219 +1,96 @@
-export type ThemeMode = "light" | "dark";
+export const DEFAULT_THEME_CSS = `:root {
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-secondary: #fcfcfc;
 
-/** Color tokens stored as hex + optional alpha (0–1). */
-export type TokenValue = {
-  color: string;
-  alpha?: number;
-};
+  /* Borders */
+  --border: #f5f5f5;
+  --border-secondary: #f3f3f3;
+  --input-fill: var(--surface-secondary);
+  --input-border: var(--border-secondary);
 
-export type Palette = Record<string, TokenValue>;
+  /* Text */
+  --text-primary: #404040;
+  --text-secondary: #7a7a7a;
+  --text-muted: #dedede;
 
-export type TokenMeta = {
-  key: string;
-  cssVar: string;
-  label: string;
-  description?: string;
-  hasAlpha?: boolean;
-};
+  /* Interaction states */
+  --hover-bg: rgb(239 239 239 / 35%);
+  --active-bg: rgb(239 239 239 / 45%);
 
-export type RadiusKey = "radius-default" | "radius-small" | "radius-large";
+  /* Icons */
+  --icon: #808080;
+  --icon-active: #414141;
 
-export type RadiusTokens = Record<RadiusKey, number>;
+  /* Actions */
+  --primary: #3e63dd;
+  --primary-foreground: oklch(0.97 0.014 254.604);
+  --danger: oklch(0.6471 0.2288 22.47);
+  --danger-foreground: #ffffff;
 
-export type RadiusMeta = {
-  key: RadiusKey;
-  cssVar: `--${RadiusKey}`;
-  label: string;
-  description: string;
-  min: number;
-  max: number;
-};
+  /* Focus */
+  --ring: oklch(0.708 0 0);
 
-export const TOKEN_META: TokenMeta[] = [
-  { key: "surface", cssVar: "--surface", label: "Surface" },
-  { key: "surface-secondary", cssVar: "--surface-secondary", label: "Secondary Surface" },
-  { key: "border", cssVar: "--border", label: "Border", description: "On primary surface" },
-  {
-    key: "border-secondary",
-    cssVar: "--border-secondary",
-    label: "Secondary Border",
-    description: "On secondary surface",
-  },
-  { key: "text-primary", cssVar: "--text-primary", label: "Primary Text" },
-  { key: "text-secondary", cssVar: "--text-secondary", label: "Secondary Text" },
-  { key: "text-muted", cssVar: "--text-muted", label: "Muted Text", description: "Disabled indication" },
-  {
-    key: "hover-bg",
-    cssVar: "--hover-bg",
-    label: "Hover Background",
-    hasAlpha: true,
-  },
-  {
-    key: "active-bg",
-    cssVar: "--active-bg",
-    label: "Active Background",
-    hasAlpha: true,
-  },
-  { key: "icon", cssVar: "--icon", label: "Icon" },
-  { key: "icon-active", cssVar: "--icon-active", label: "Active Icon" },
-  { key: "primary", cssVar: "--primary", label: "Primary Theme" },
-  {
-    key: "primary-foreground",
-    cssVar: "--primary-foreground",
-    label: "Primary Foreground",
-    description: "Text/icon on primary",
-  },
-  {
-    key: "ring",
-    cssVar: "--ring",
-    label: "Focus Ring",
-    description: "Soft focus glow base color",
-  },
-];
+  /* Radius */
+  --radius-default: 6px;
+  --radius-small: 4px;
+  --radius-large: 999px;
 
-export const RADIUS_META: RadiusMeta[] = [
-  {
-    key: "radius-default",
-    cssVar: "--radius-default",
-    label: "Radius Default",
-    description: "Used almost everywhere — cards, buttons, inputs",
-    min: 0,
-    max: 32,
-  },
-  {
-    key: "radius-small",
-    cssVar: "--radius-small",
-    label: "Radius Small",
-    description: "Compact controls and tight chips",
-    min: 0,
-    max: 24,
-  },
-  {
-    key: "radius-large",
-    cssVar: "--radius-large",
-    label: "Radius Large",
-    description: "Avatars, photos, fully rounded media",
-    min: 0,
-    max: 999,
-  },
-];
-
-export const DEFAULT_LIGHT: Palette = {
-  surface: { color: "#ffffff" },
-  "surface-secondary": { color: "#fcfcfc" },
-  border: { color: "#f5f5f5" },
-  "border-secondary": { color: "#f3f3f3" },
-  "text-primary": { color: "#404040" },
-  "text-secondary": { color: "#7a7a7a" },
-  "text-muted": { color: "#dedede" },
-  "hover-bg": { color: "#efefef", alpha: 0.35 },
-  "active-bg": { color: "#efefef", alpha: 0.45 },
-  icon: { color: "#808080" },
-  "icon-active": { color: "#414141" },
-  primary: { color: "#3e63dd" },
-  "primary-foreground": { color: "#e3e3e3" },
-  ring: { color: "#000000" },
-};
-
-export const DEFAULT_DARK: Palette = {
-  surface: { color: "#141414" },
-  "surface-secondary": { color: "#1b1b1b" },
-  border: { color: "#1e1e1e" },
-  "border-secondary": { color: "#242424" },
-  "text-primary": { color: "#e3e3e3" },
-  "text-secondary": { color: "#a2a2a2" },
-  "text-muted": { color: "#424242" },
-  "hover-bg": { color: "#616161", alpha: 0.2 },
-  "active-bg": { color: "#616161", alpha: 0.26 },
-  icon: { color: "#a3a3a3" },
-  "icon-active": { color: "#e5e5e5" },
-  primary: { color: "#3e63dd" },
-  "primary-foreground": { color: "#e3e3e3" },
-  ring: { color: "#ffffff" },
-};
-
-export const DEFAULT_RADIUS: RadiusTokens = {
-  "radius-default": 6,
-  "radius-small": 4,
-  "radius-large": 999,
-};
-
-export function clonePalette(palette: Palette): Palette {
-  return Object.fromEntries(
-    Object.entries(palette).map(([key, value]) => [
-      key,
-      { color: value.color, alpha: value.alpha },
-    ]),
-  );
+  /* Data */
+  --chart-1: #d4d4d4;
+  --chart-2: #7a7a7a;
+  --chart-3: #5f5f5f;
+  --chart-4: #494949;
+  --chart-5: #343434;
 }
 
-export function cloneRadius(radius: RadiusTokens): RadiusTokens {
-  return { ...radius };
-}
+.dark {
+  /* Surfaces */
+  --surface: #141414;
+  --surface-secondary: #1b1b1b;
 
-function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
-  const normalized = hex.replace("#", "").trim();
-  const full =
-    normalized.length === 3
-      ? normalized
-          .split("")
-          .map((char) => char + char)
-          .join("")
-      : normalized;
+  /* Borders */
+  --border: #1e1e1e;
+  --border-secondary: #242424;
+  --input-fill: var(--surface-secondary);
+  --input-border: var(--border-secondary);
 
-  if (!/^[0-9a-fA-F]{6}$/.test(full)) return null;
+  /* Text */
+  --text-primary: #e3e3e3;
+  --text-secondary: #a2a2a2;
+  --text-muted: #424242;
 
-  return {
-    r: Number.parseInt(full.slice(0, 2), 16),
-    g: Number.parseInt(full.slice(2, 4), 16),
-    b: Number.parseInt(full.slice(4, 6), 16),
-  };
-}
+  /* Interaction states */
+  --hover-bg: rgb(97 97 97 / 20%);
+  --active-bg: rgb(97 97 97 / 26%);
 
-export function formatCssValue(value: TokenValue, hasAlpha?: boolean): string {
-  if (!hasAlpha || value.alpha === undefined || value.alpha >= 1) {
-    return value.color.toLowerCase();
-  }
+  /* Icons */
+  --icon: #a3a3a3;
+  --icon-active: #e5e5e5;
 
-  const rgb = hexToRgb(value.color);
-  if (!rgb) return value.color.toLowerCase();
+  /* Actions */
+  --primary: #3e63dd;
+  --primary-foreground: oklch(0.97 0.014 254.604);
+  --danger: oklch(0.6471 0.2288 22.47);
+  --danger-foreground: #ffffff;
 
-  const alphaPercent = Math.round(value.alpha * 100);
-  return `rgb(${rgb.r} ${rgb.g} ${rgb.b} / ${alphaPercent}%)`;
-}
+  /* Focus */
+  --ring: oklch(0.556 0 0);
 
-export function paletteToCssBlock(selector: string, palette: Palette): string {
-  const lines = TOKEN_META.map((token) => {
-    const value = palette[token.key] ?? { color: "#000000" };
-    return `  ${token.cssVar}: ${formatCssValue(value, token.hasAlpha)};`;
-  });
+  /* Data */
+  --chart-1: #d4d4d4;
+  --chart-2: #7a7a7a;
+  --chart-3: #5f5f5f;
+  --chart-4: #494949;
+  --chart-5: #343434;
+}`;
 
-  return `${selector} {\n${lines.join("\n")}\n}`;
-}
-
-export function radiusToCssBlock(radius: RadiusTokens): string {
-  const lines = RADIUS_META.map(
-    (token) => `  ${token.cssVar}: ${radius[token.key]}px;`,
-  );
-  return `:root {\n${lines.join("\n")}\n}`;
-}
-
-export function normalizeHex(input: string): string | null {
-  const trimmed = input.trim();
-  const withHash = trimmed.startsWith("#") ? trimmed : `#${trimmed}`;
-  const body = withHash.slice(1);
-
-  if (/^[0-9a-fA-F]{3}$/.test(body)) {
-    return `#${body
-      .split("")
-      .map((char) => char + char)
-      .join("")
-      .toLowerCase()}`;
-  }
-
-  if (/^[0-9a-fA-F]{6}$/.test(body)) {
-    return `#${body.toLowerCase()}`;
-  }
-
-  return null;
-}
+export const TOKEN_GROUPS = [
+  { label: "Surfaces", tokens: ["surface", "surface-secondary"] },
+  { label: "Inputs", tokens: ["input-fill", "input-border"] },
+  { label: "Text", tokens: ["text-primary", "text-secondary", "text-muted"] },
+  { label: "States", tokens: ["hover-bg", "active-bg"] },
+  { label: "Icons", tokens: ["icon", "icon-active"] },
+  { label: "Actions", tokens: ["primary", "primary-foreground", "danger", "danger-foreground"] },
+  { label: "Radius", tokens: ["radius-default", "radius-small", "radius-large"] },
+] as const;
