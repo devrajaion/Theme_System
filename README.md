@@ -15,23 +15,25 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utilities.
 
+Inspired by **Cursor Light** / **Cursor Dark** chrome (editor vs sidebar, ink mixes for type and states). Not an official Cursor theme.
+
 | Token | Light | Dark | Utility |
 | --- | --- | --- | --- |
-| Surface | `#ffffff` | `#1c1c1c` | `bg-surface` |
-| Secondary Surface | `#fcfcfc` | `#1b1b1b` | `bg-surface-secondary` |
-| Border | `#f5f5f5` | `#1e1e1e` | `border-border` |
-| Secondary Border | `#f3f3f3` | `#242424` | `border-border-secondary` |
+| Surface | `#FCFCFC` | `#181818` | `bg-surface` |
+| Secondary Surface | `#F3F3F3` | `#141414` | `bg-surface-secondary` |
+| Border | `#141414` 8% | `#F0F0F0` 8% | `border-border` |
+| Secondary Border | `#141414` 12% | `#F0F0F0` 12% | `border-border-secondary` |
 
 **Rule:** `border-border` on primary surface · `border-border-secondary` on secondary surface.
-| Primary Text | `#404040` | `#e3e3e3` | `text-text-primary` |
-| Secondary Text | `#7A7A7A` | `#A2A2A2` | `text-text-secondary` |
-| Muted Text | `#DEDEDE` | `#4C4C4C` | `text-text-muted` |
-| Hover Background | `#EFEFEF` 35% | `#616161` 20% | `bg-hover-bg` |
-| Active Background | `#EFEFEF` 75% | `#616161` 30% | `bg-active-bg` |
-| Icon | `#808080` | `#a3a3a3` | `text-icon` |
-| Active Icon | `#414141` | `#e5e5e5` | `text-icon-active` |
-| Primary Theme | `#3e63dd` | `#3e63dd` | `bg-primary` / `.ui-primary` |
-| Focus Ring | `#000000` @ 12% | `#ffffff` @ 14% | soft box-shadow glow |
+| Primary Text | `#141414` | `#F0F0F0` | `text-text-primary` |
+| Secondary Text | `#141414` 74% | `#F0F0F0` 74% | `text-text-secondary` |
+| Muted Text | `#141414` 36% | `#F0F0F0` 36% | `text-text-muted` |
+| Hover Background | `#141414` 4% | `#F0F0F0` 8% | `bg-hover-bg` |
+| Active Background | `#141414` 6% | `#F0F0F0` 14% | `bg-active-bg` |
+| Icon | `#141414` 50% | `#F0F0F0` 66% | `text-icon` |
+| Active Icon | `#141414` | `#F0F0F0` | `text-icon-active` |
+| Primary Theme | `#2778C1` | `#81A1C1` | `bg-primary` / `.ui-primary` |
+| Focus Ring | `#141414` 20% | `#F0F0F0` 15% | `ring-ring` |
 
 ### Radius (shared)
 

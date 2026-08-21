@@ -1,88 +1,74 @@
 export const DEFAULT_THEME_CSS = `:root {
-  /* Surfaces */
-  --surface: #ffffff;
-  --surface-secondary: #fcfcfc;
+  /* Surfaces — editor vs sidebar/chrome */
+  --surface: #fcfcfc;
+  --surface-secondary: #f3f3f3;
 
-  /* Borders */
-  --border: #f5f5f5;
-  --border-secondary: #f3f3f3;
-  --input-fill: var(--surface-secondary);
-  --input-border: var(--border-secondary);
+  /* Borders — ink @ 8% / 12% / 20% */
+  --border: color-mix(in srgb, #141414 8%, transparent);
+  --border-secondary: color-mix(in srgb, #141414 12%, transparent);
+  --input-fill: #fcfcfc;
+  --input-border: color-mix(in srgb, #141414 20%, transparent);
 
-  /* Text */
-  --text-primary: #404040;
-  --text-secondary: #7a7a7a;
-  --text-muted: #dedede;
+  /* Text — ink @ 100% / 74% / 36% */
+  --text-primary: #141414;
+  --text-secondary: color-mix(in srgb, #141414 74%, transparent);
+  --text-muted: color-mix(in srgb, #141414 36%, transparent);
 
-  /* Interaction states */
-  --hover-bg: rgb(239 239 239 / 35%);
-  --active-bg: rgb(239 239 239 / 45%);
+  /* Interaction states — ink @ 4% / 6% */
+  --hover-bg: color-mix(in srgb, #141414 4%, transparent);
+  --active-bg: color-mix(in srgb, #141414 6%, transparent);
 
-  /* Icons */
-  --icon: #808080;
-  --icon-active: #414141;
+  /* Icons — ink @ 50% / 100% */
+  --icon: color-mix(in srgb, #141414 50%, transparent);
+  --icon-active: #141414;
 
   /* Actions */
-  --primary: #3e63dd;
-  --primary-foreground: oklch(0.97 0.014 254.604);
-  --danger: oklch(0.6471 0.2288 22.47);
-  --danger-foreground: #ffffff;
+  --primary: #2778c1;
+  --primary-foreground: #fcfcfc;
+  --danger: #be1744;
+  --danger-foreground: #fcfcfc;
 
-  /* Focus */
-  --ring: oklch(0.708 0 0);
+  /* Focus — ink @ 20% */
+  --ring: color-mix(in srgb, #141414 20%, transparent);
 
   /* Radius */
   --radius-default: 6px;
   --radius-small: 4px;
   --radius-large: 999px;
-
-  /* Data */
-  --chart-1: #d4d4d4;
-  --chart-2: #7a7a7a;
-  --chart-3: #5f5f5f;
-  --chart-4: #494949;
-  --chart-5: #343434;
 }
 
 .dark {
-  /* Surfaces */
-  --surface: #141414;
-  --surface-secondary: #1b1b1b;
+  /* Surfaces — editor vs chrome */
+  --surface: #181818;
+  --surface-secondary: #141414;
 
-  /* Borders */
-  --border: #1e1e1e;
-  --border-secondary: #242424;
-  --input-fill: var(--surface-secondary);
-  --input-border: var(--border-secondary);
+  /* Borders — ink @ 8% / 12% */
+  --border: color-mix(in srgb, #f0f0f0 8%, transparent);
+  --border-secondary: color-mix(in srgb, #f0f0f0 12%, transparent);
+  --input-fill: color-mix(in srgb, #f0f0f0 4%, transparent);
+  --input-border: color-mix(in srgb, #f0f0f0 8%, transparent);
 
-  /* Text */
-  --text-primary: #e3e3e3;
-  --text-secondary: #a2a2a2;
-  --text-muted: #424242;
+  /* Text — ink @ 100% / 74% / 36% */
+  --text-primary: #f0f0f0;
+  --text-secondary: color-mix(in srgb, #f0f0f0 74%, transparent);
+  --text-muted: color-mix(in srgb, #f0f0f0 36%, transparent);
 
-  /* Interaction states */
-  --hover-bg: rgb(97 97 97 / 20%);
-  --active-bg: rgb(97 97 97 / 26%);
+  /* Interaction states — ink @ 8% / 14% */
+  --hover-bg: color-mix(in srgb, #f0f0f0 8%, transparent);
+  --active-bg: color-mix(in srgb, #f0f0f0 14%, transparent);
 
-  /* Icons */
-  --icon: #a3a3a3;
-  --icon-active: #e5e5e5;
+  /* Icons — ink @ 66% / 100% */
+  --icon: color-mix(in srgb, #f0f0f0 66%, transparent);
+  --icon-active: #f0f0f0;
 
   /* Actions */
-  --primary: #3e63dd;
-  --primary-foreground: oklch(0.97 0.014 254.604);
-  --danger: oklch(0.6471 0.2288 22.47);
-  --danger-foreground: #ffffff;
+  --primary: #81a1c1;
+  --primary-foreground: #191c22;
+  --danger: #e34671;
+  --danger-foreground: #f0f0f0;
 
-  /* Focus */
-  --ring: oklch(0.556 0 0);
-
-  /* Data */
-  --chart-1: #d4d4d4;
-  --chart-2: #7a7a7a;
-  --chart-3: #5f5f5f;
-  --chart-4: #494949;
-  --chart-5: #343434;
+  /* Focus — ink @ 15% */
+  --ring: color-mix(in srgb, #f0f0f0 15%, transparent);
 }`;
 
 export const TOKEN_GROUPS = [
