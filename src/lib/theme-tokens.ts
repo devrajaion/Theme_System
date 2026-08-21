@@ -5,7 +5,7 @@ export const DEFAULT_THEME_CSS = `:root {
 
   /* Borders */
   --border: color-mix(in srgb, #141414 8%, transparent);
-  --border-secondary: color-mix(in srgb, #141414 12%, transparent);
+  --border-secondary: var(--border);
   --input-fill: var(--surface);
   --input-border: var(--border);
 

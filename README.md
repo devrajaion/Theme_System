@@ -20,7 +20,7 @@ Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utili
 | Surface | `#FCFCFC` | `#141414` | `bg-surface` |
 | Secondary Surface | `#F3F3F3` | `#181818` | `bg-surface-secondary` |
 | Border | `#141414` 8% | `#F0F0F0` 8% | `border-border` |
-| Secondary Border | `#141414` 12% | `#F0F0F0` 12% | `border-border-secondary` |
+| Secondary Border | `#141414` 8% | `#F0F0F0` 12% | `border-border-secondary` |
 
 **Rule:** `border-border` on primary surface · `border-border-secondary` on secondary surface.
 | Primary Text | `#141414` | `#F0F0F0` | `text-text-primary` |
