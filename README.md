@@ -15,8 +15,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Defined in `src/app/globals.css` as CSS variables, also mapped to Tailwind utilities.
 
-Inspired by **Cursor Light** / **Cursor Dark** chrome (editor vs sidebar, ink mixes for type and states). Not an official Cursor theme.
-
 | Token | Light | Dark | Utility |
 | --- | --- | --- | --- |
 | Surface | `#FCFCFC` | `#181818` | `bg-surface` |
@@ -32,7 +30,9 @@ Inspired by **Cursor Light** / **Cursor Dark** chrome (editor vs sidebar, ink mi
 | Active Background | `#141414` 6% | `#F0F0F0` 14% | `bg-active-bg` |
 | Icon | `#141414` 50% | `#F0F0F0` 66% | `text-icon` |
 | Active Icon | `#141414` | `#F0F0F0` | `text-icon-active` |
-| Primary Theme | `#2778C1` | `#81A1C1` | `bg-primary` / `.ui-primary` |
+| Primary Theme | `#3e63dd` | `#3e63dd` | `bg-primary` / `.ui-primary` |
+| Bullish | `#089981` | `#089981` | `bg-bullish` · candles / volume up |
+| Bearish | `#f7525f` | `#f7525f` | `bg-bearish` · candles / volume down |
 | Focus Ring | `#141414` 20% | `#F0F0F0` 15% | `ring-ring` |
 
 ### Radius (shared)

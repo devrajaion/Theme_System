@@ -59,7 +59,62 @@ function RadiusSample({ label, children }: { label: string; children: ReactNode 
 
 function DashboardPreview({ activeNav, setActiveNav }: { activeNav: string; setActiveNav: (value: string) => void }) { return <div className="overflow-hidden rounded-xl border bg-background"><div className="grid min-h-[520px] md:grid-cols-[210px_1fr]">
   <aside className="hidden border-r border-sidebar-border bg-sidebar p-3 text-sidebar-foreground md:flex md:flex-col"><div className="flex items-center gap-2 px-2 py-3"><div className="grid size-8 place-items-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"><HugeiconsIcon icon={CreditCardIcon} size={17} /></div><div><p className="text-sm font-semibold">Acme Studio</p><p className="text-[11px] text-muted-foreground">Pro workspace</p></div></div><nav className="mt-4 space-y-1">{navItems.map(([name, icon]) => <button key={name} onClick={() => setActiveNav(name)} className={`group flex w-full items-center gap-2.5 rounded-md border border-transparent px-2.5 py-2 text-sm outline-none transition-colors focus-visible:border-ring focus-visible:ring-[2px] focus-visible:ring-ring/50 ${activeNav === name ? "bg-sidebar-accent font-medium text-sidebar-accent-foreground" : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"}`}><HugeiconsIcon icon={icon} size={17} className={activeNav === name ? "text-icon-active" : "text-icon transition-colors group-hover:text-icon-active"} />{name}</button>)}</nav><div className="mt-auto rounded-lg border border-sidebar-border p-3"><p className="text-xs font-medium">Storage</p><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-sidebar-accent"><div className="h-full w-2/3 bg-sidebar-primary" /></div><p className="mt-2 text-[11px] text-muted-foreground">6.8 GB of 10 GB used</p></div></aside>
-  <div><div className="flex h-14 items-center justify-between border-b px-5"><p className="text-sm font-semibold">{activeNav}</p><div className="flex items-center gap-2"><Button variant="ghost" size="icon"><HugeiconsIcon icon={Notification03Icon} size={18} /></Button><div className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground"><HugeiconsIcon icon={UserIcon} size={16} /></div></div></div><div className="p-5"><div className="grid gap-3 sm:grid-cols-3">{[["Total revenue","$48,295","+12.5%"],["Active users","2,420","+8.2%"],["Conversion","3.8%","−0.4%"]].map(([label,value,delta]) => <Card key={label}><CardContent className="p-4"><p className="text-xs text-muted-foreground">{label}</p><div className="mt-2 flex items-end justify-between"><p className="text-xl font-semibold">{value}</p><Badge variant={delta.startsWith("+") ? "secondary" : "outline"}>{delta}</Badge></div></CardContent></Card>)}</div><Card className="mt-4"><CardHeader className="pb-2"><CardTitle className="text-base">Weekly activity</CardTitle><CardDescription>Sessions across the last seven days</CardDescription></CardHeader><CardContent><div className="flex h-44 items-end gap-2 sm:gap-4">{[38,58,44,76,62,88,70].map((height,index) => <div key={index} className="flex flex-1 flex-col items-center gap-2"><div className="w-full rounded-t-md bg-primary transition-all hover:bg-primary/80" style={{ height: `${height}%` }} /><span className="text-[10px] text-muted-foreground">{["M","T","W","T","F","S","S"][index]}</span></div>)}</div></CardContent></Card></div></div>
+  <div><div className="flex h-14 items-center justify-between border-b px-5"><p className="text-sm font-semibold">{activeNav}</p><div className="flex items-center gap-2"><Button variant="ghost" size="icon"><HugeiconsIcon icon={Notification03Icon} size={18} /></Button><div className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground"><HugeiconsIcon icon={UserIcon} size={16} /></div></div></div><div className="p-5"><div className="grid gap-3 sm:grid-cols-3">{[["Total revenue","$48,295","+12.5%"],["Active users","2,420","+8.2%"],["Conversion","3.8%","−0.4%"]].map(([label,value,delta]) => <Card key={label}><CardContent className="p-4"><p className="text-xs text-muted-foreground">{label}</p><div className="mt-2 flex items-end justify-between"><p className="text-xl font-semibold">{value}</p><Badge variant={delta.startsWith("+") ? "secondary" : "outline"}>{delta}</Badge></div></CardContent></Card>)}</div><div className="mt-4"><CandlestickPreview /></div></div></div>
   </div></div>; }
 
-function TokenPreview() { const colors = ["surface","surface-secondary","border","border-secondary","input-fill","input-border","text-primary","text-secondary","text-muted","hover-bg","active-bg","icon","icon-active","primary","primary-foreground","danger","danger-foreground","ring"]; return <Card><CardHeader><CardTitle>Clean token inventory</CardTitle><CardDescription>Only purposeful design tokens are exposed; compatibility aliases are kept out of the theme.</CardDescription></CardHeader><CardContent><div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">{colors.map((token) => <div key={token} className="overflow-hidden rounded-[var(--radius-default)] border bg-card"><div className="h-16 border-b" style={{ background: `var(--${token})` }} /><div className="p-2"><p className="truncate font-mono text-[10px]">--{token}</p></div></div>)}</div></CardContent></Card>; }
+const CANDLES = [
+  { o: 48, h: 62, l: 44, c: 58, v: 36 },
+  { o: 58, h: 64, l: 50, c: 52, v: 54 },
+  { o: 52, h: 55, l: 40, c: 42, v: 70 },
+  { o: 42, h: 51, l: 38, c: 49, v: 48 },
+  { o: 49, h: 68, l: 47, c: 65, v: 82 },
+  { o: 65, h: 70, l: 56, c: 58, v: 60 },
+  { o: 58, h: 61, l: 52, c: 54, v: 32 },
+  { o: 54, h: 72, l: 53, c: 70, v: 90 },
+  { o: 70, h: 74, l: 60, c: 62, v: 66 },
+  { o: 62, h: 66, l: 48, c: 50, v: 78 },
+  { o: 50, h: 58, l: 46, c: 56, v: 44 },
+  { o: 56, h: 80, l: 55, c: 76, v: 95 },
+] as const;
+
+function CandlestickPreview() {
+  const priceMin = Math.min(...CANDLES.map((c) => c.l)) - 4;
+  const priceMax = Math.max(...CANDLES.map((c) => c.h)) + 4;
+  const span = priceMax - priceMin;
+  const y = (price: number) => `${((priceMax - price) / span) * 100}%`;
+  const len = (a: number, b: number) => `${Math.max((Math.abs(a - b) / span) * 100, 1.2)}%`;
+  const volMax = Math.max(...CANDLES.map((c) => c.v));
+  return (
+    <Card>
+      <CardHeader className="pb-2">
+        <CardTitle className="text-base">BTCUSDT · 1h</CardTitle>
+        <CardDescription>Candles and volume use --bullish and --bearish only.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="relative h-44">
+          {CANDLES.map((candle, index) => {
+            const up = candle.c >= candle.o;
+            const tone = up ? "bg-bullish" : "bg-bearish";
+            return (
+              <div key={index} className="absolute inset-y-0" style={{ left: `${(index / CANDLES.length) * 100}%`, width: `${100 / CANDLES.length}%` }}>
+                <div className={`absolute left-1/2 w-px -translate-x-1/2 ${tone}`} style={{ top: y(candle.h), height: len(candle.h, candle.l) }} />
+                <div className={`absolute left-1/2 w-2.5 -translate-x-1/2 rounded-[1px] ${tone}`} style={{ top: y(Math.max(candle.o, candle.c)), height: len(candle.o, candle.c) }} />
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-1 flex h-12 items-end gap-px">
+          {CANDLES.map((candle, index) => (
+            <div key={index} className={`flex-1 rounded-sm ${candle.c >= candle.o ? "bg-bullish/40" : "bg-bearish/40"}`} style={{ height: `${(candle.v / volMax) * 100}%` }} />
+          ))}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-4 text-[11px] text-text-secondary">
+          <span className="inline-flex items-center gap-1.5"><span className="size-2 rounded-sm bg-bullish" /> Candle / volume up</span>
+          <span className="inline-flex items-center gap-1.5"><span className="size-2 rounded-sm bg-bearish" /> Candle / volume down</span>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+function TokenPreview() { const colors = ["surface","surface-secondary","border","border-secondary","input-fill","input-border","text-primary","text-secondary","text-muted","hover-bg","active-bg","icon","icon-active","primary","primary-foreground","danger","danger-foreground","bullish","bearish","ring"]; return <Card><CardHeader><CardTitle>Clean token inventory</CardTitle><CardDescription>Only purposeful design tokens are exposed; compatibility aliases are kept out of the theme.</CardDescription></CardHeader><CardContent><div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">{colors.map((token) => <div key={token} className="overflow-hidden rounded-[var(--radius-default)] border bg-card"><div className="h-16 border-b" style={{ background: `var(--${token})` }} /><div className="p-2"><p className="truncate font-mono text-[10px]">--{token}</p></div></div>)}</div></CardContent></Card>; }
