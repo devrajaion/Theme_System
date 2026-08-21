@@ -48,7 +48,7 @@ export const DEFAULT_THEME_CSS = `:root {
 
   /* Borders */
   --border: color-mix(in srgb, #f0f0f0 8%, transparent);
-  --border-secondary: color-mix(in srgb, #f0f0f0 12%, transparent);
+  --border-secondary: var(--border);
   --input-fill: color-mix(in srgb, #f0f0f0 4%, transparent);
   --input-border: var(--border);
 
