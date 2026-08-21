@@ -6,8 +6,8 @@ export const DEFAULT_THEME_CSS = `:root {
   /* Borders */
   --border: color-mix(in srgb, #141414 8%, transparent);
   --border-secondary: color-mix(in srgb, #141414 12%, transparent);
-  --input-fill: #fcfcfc;
-  --input-border: color-mix(in srgb, #141414 20%, transparent);
+  --input-fill: var(--surface);
+  --input-border: var(--border);
 
   /* Text */
   --text-primary: #141414;
@@ -50,7 +50,7 @@ export const DEFAULT_THEME_CSS = `:root {
   --border: color-mix(in srgb, #f0f0f0 8%, transparent);
   --border-secondary: color-mix(in srgb, #f0f0f0 12%, transparent);
   --input-fill: color-mix(in srgb, #f0f0f0 4%, transparent);
-  --input-border: color-mix(in srgb, #f0f0f0 8%, transparent);
+  --input-border: var(--border);
 
   /* Text */
   --text-primary: #f0f0f0;
