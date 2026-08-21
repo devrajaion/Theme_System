@@ -43,8 +43,8 @@ export const DEFAULT_THEME_CSS = `:root {
 
 .dark {
   /* Surfaces */
-  --surface: #181818;
-  --surface-secondary: #141414;
+  --surface: #141414;
+  --surface-secondary: #181818;
 
   /* Borders */
   --border: color-mix(in srgb, #f0f0f0 8%, transparent);
